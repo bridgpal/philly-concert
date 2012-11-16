@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <title>Concert</title>
+  <link rel="stylesheet"
+  href="http://current.bootstrapcdn.com/bootstrap-v204/css/bootstrap-combined.min.css">
+</head>
+<body>
+  <div class="span12">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Event</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+        <tbody>
+        <% @concerts.each do | concert | %>
+          <% if concert.css(".cell1").text.length != 0 and concert.css(".cell2").text == @venue %>
+          <tr>
+            <td class="span2"><%= concert.at_css('.cell0').text %></td>
+            <td><%= concert.at_css('.cell1').text %></td>
+            <td><%= concert.at_css('.cell3').text %></td>
+          </tr>
+          <% end %>
+         <% end %>
+        </tbody>
+      </table>
+    </div>
+</body>
+</html>
